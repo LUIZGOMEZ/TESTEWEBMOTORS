@@ -1,0 +1,3056 @@
+{
+	"info": {
+		"_postman_id": "3da05d17-d709-47c3-8211-0f97ca306ae8",
+		"name": "Swagger Webmotors",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Online Challenge",
+					"item": [
+						{
+							"name": "API para recuperar marcas cadastradas na webmotors",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "69c2fe57-a949-49ec-a259-953b4b002125",
+										"exec": [
+											"pm.test(\"API para recuperar marcas cadastradas na webmotors - Status 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"var marcasEsperadas = ['Chevrolet', 'Honda', 'Ford']\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"for (var i = 0; i < marcasEsperadas.length; i++) {\r",
+											"    pm.test(\"Marca esperada: \" + marcasEsperadas[i] + \" - Marca obtida: \" + jsonData[i].Name, function () {\r",
+											"        pm.expect(jsonData[i].Name).to.eql(marcasEsperadas[i]);\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/OnlineChallenge/Make",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"OnlineChallenge",
+										"Make"
+									]
+								},
+								"description": "JSON retorno para leitura"
+							},
+							"response": [
+								{
+									"name": "HTTP OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Make",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Make"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Email\": \"ut\",\n \"Password\": \"fugi\",\n \"ConfirmPassword\": \"sint\"\n}"
+								},
+								{
+									"name": "API para recuperar marcas cadastradas na webmotors",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Make",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Make"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 26 Nov 2020 22:38:21 GMT"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "SERVER",
+											"value": ""
+										},
+										{
+											"key": "Content-Length",
+											"value": "76"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"ID\": 1,\n        \"Name\": \"Chevrolet\"\n    },\n    {\n        \"ID\": 2,\n        \"Name\": \"Honda\"\n    },\n    {\n        \"ID\": 3,\n        \"Name\": \"Ford\"\n    }\n]"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Make",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Make"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "API para recuperar modelos cadastrados na webmotors - MakeID = 1 (Chevrolet)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "db09cf3f-521a-4120-93ff-6aa3de87e82c",
+										"exec": [
+											"pm.test(\"API para recuperar modelos cadastrados na webmotors - MakeID = 1 (Chevrolet) - Status 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"var modelosEsperados = ['Agile', 'Astra', 'Onix']\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"for (var i = 0; i < modelosEsperados.length; i++) {\r",
+											"    pm.test(\"MakeID = 1 (Chevrolet) -> \" + \"Modelo esperado: \" + modelosEsperados[i] + \" - Modelo obtido: \" + jsonData[i].Name, function () {\r",
+											"        pm.expect(jsonData[i].Name).to.eql(modelosEsperados[i]);\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/OnlineChallenge/Model?MakeID=1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"OnlineChallenge",
+										"Model"
+									],
+									"query": [
+										{
+											"key": "MakeID",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "JSON retorno para leitura"
+							},
+							"response": [
+								{
+									"name": "API para recuperar modelos cadastrados na webmotors - MakeID = 1 (Chevrolet)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Model?MakeID=1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Model"
+											],
+											"query": [
+												{
+													"key": "MakeID",
+													"value": "1",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 26 Nov 2020 22:38:55 GMT"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "ASP.NET"
+										},
+										{
+											"key": "Content-Length",
+											"value": "105"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"MakeID\": 1,\n        \"ID\": 1,\n        \"Name\": \"Agile\"\n    },\n    {\n        \"MakeID\": 1,\n        \"ID\": 2,\n        \"Name\": \"Astra\"\n    },\n    {\n        \"MakeID\": 1,\n        \"ID\": 3,\n        \"Name\": \"Onix\"\n    }\n]"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Model?MakeID=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Model"
+											],
+											"query": [
+												{
+													"key": "MakeID",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "HTTP OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Model?MakeID=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Model"
+											],
+											"query": [
+												{
+													"key": "MakeID",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Email\": \"ut\",\n \"Password\": \"fugi\",\n \"ConfirmPassword\": \"sint\"\n}"
+								}
+							]
+						},
+						{
+							"name": "API para recuperar modelos cadastrados na webmotors - MakeID = 2 (Honda)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "931d2f40-dea7-4fb1-9b6e-170e6ef3c989",
+										"exec": [
+											"pm.test(\"API para recuperar modelos cadastrados na webmotors - MakeID = 2 (Honda) - Status 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"var modelosEsperados = ['City', 'CRV', 'Fit']\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"for (var i = 0; i < modelosEsperados.length; i++) {\r",
+											"    pm.test(\"MakeID = 2 (Honda) -> \" + \"Modelo esperado: \" + modelosEsperados[i] + \" - Modelo obtido: \" + jsonData[i].Name, function () {\r",
+											"        pm.expect(jsonData[i].Name).to.eql(modelosEsperados[i]);\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/OnlineChallenge/Model?MakeID=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"OnlineChallenge",
+										"Model"
+									],
+									"query": [
+										{
+											"key": "MakeID",
+											"value": "2",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "JSON retorno para leitura"
+							},
+							"response": [
+								{
+									"name": "HTTP OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Model?MakeID=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Model"
+											],
+											"query": [
+												{
+													"key": "MakeID",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Email\": \"ut\",\n \"Password\": \"fugi\",\n \"ConfirmPassword\": \"sint\"\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Model?MakeID=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Model"
+											],
+											"query": [
+												{
+													"key": "MakeID",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "API para recuperar modelos cadastrados na webmotors - MakeID = 2 (Honda)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Model?MakeID=2",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Model"
+											],
+											"query": [
+												{
+													"key": "MakeID",
+													"value": "2",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 26 Nov 2020 22:39:23 GMT"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "SERVER",
+											"value": ""
+										},
+										{
+											"key": "Content-Length",
+											"value": "101"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"MakeID\": 2,\n        \"ID\": 4,\n        \"Name\": \"City\"\n    },\n    {\n        \"MakeID\": 2,\n        \"ID\": 5,\n        \"Name\": \"CRV\"\n    },\n    {\n        \"MakeID\": 2,\n        \"ID\": 6,\n        \"Name\": \"Fit\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "API para recuperar modelos cadastrados na webmotors - MakeID = 3 (Ford)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fa09ae8b-7879-4098-b4e8-bfaf14241d0e",
+										"exec": [
+											"pm.test(\"API para recuperar modelos cadastrados na webmotors - MakeID = 3 (Ford) - Status 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"var modelosEsperados = ['Ecosport', 'Fussion']\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"for (var i = 0; i < modelosEsperados.length; i++) {\r",
+											"    pm.test(\"MakeID = 3 (Ford) -> \" + \"Modelo esperado: \" + modelosEsperados[i] + \" - Modelo obtido: \" + jsonData[i].Name, function () {\r",
+											"        pm.expect(jsonData[i].Name).to.eql(modelosEsperados[i]);\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/OnlineChallenge/Model?MakeID=3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"OnlineChallenge",
+										"Model"
+									],
+									"query": [
+										{
+											"key": "MakeID",
+											"value": "3",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "JSON retorno para leitura"
+							},
+							"response": [
+								{
+									"name": "API para recuperar modelos cadastrados na webmotors - MakeID = 3 (Ford)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Model?MakeID=3",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Model"
+											],
+											"query": [
+												{
+													"key": "MakeID",
+													"value": "3",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 26 Nov 2020 22:39:36 GMT"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "SERVER",
+											"value": ""
+										},
+										{
+											"key": "Content-Length",
+											"value": "76"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"MakeID\": 3,\n        \"ID\": 7,\n        \"Name\": \"Ecosport\"\n    },\n    {\n        \"MakeID\": 3,\n        \"ID\": 8,\n        \"Name\": \"Fussion\"\n    }\n]"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Model?MakeID=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Model"
+											],
+											"query": [
+												{
+													"key": "MakeID",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "HTTP OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Model?MakeID=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Model"
+											],
+											"query": [
+												{
+													"key": "MakeID",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Email\": \"ut\",\n \"Password\": \"fugi\",\n \"ConfirmPassword\": \"sint\"\n}"
+								}
+							]
+						},
+						{
+							"name": "API para recuperar versões cadastradas na webmotors - ModelID = 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1f253402-d9ab-44c8-9ed5-56c6f9c0f063",
+										"exec": [
+											"pm.test(\"API para recuperar versões cadastradas na webmotors - ModelID = 1 - Status 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/OnlineChallenge/Version?ModelID=1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"OnlineChallenge",
+										"Version"
+									],
+									"query": [
+										{
+											"key": "ModelID",
+											"value": "1",
+											"description": "(Required) Codigo do Modelo"
+										}
+									]
+								},
+								"description": "JSON retorno para leitura"
+							},
+							"response": [
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Version?ModelID=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Version"
+											],
+											"query": [
+												{
+													"key": "ModelID",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "API para recuperar versões cadastradas na webmotors - ModelID = 1",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Version?ModelID=1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Version"
+											],
+											"query": [
+												{
+													"key": "ModelID",
+													"value": "1",
+													"description": "(Required) Codigo do Modelo"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 26 Nov 2020 22:39:49 GMT"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "SERVER",
+											"value": ""
+										},
+										{
+											"key": "Content-Length",
+											"value": "207"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"ModelID\": 1,\n        \"ID\": 7,\n        \"Name\": \"1.5 LX 16V FLEX 4P MANUAL\"\n    },\n    {\n        \"ModelID\": 1,\n        \"ID\": 8,\n        \"Name\": \"2.0 EXL 4X4 16V GASOLINA 4P AUTOMÁTICO\"\n    },\n    {\n        \"ModelID\": 1,\n        \"ID\": 9,\n        \"Name\": \"1.8 16V EVO FLEX FREEDOM OPEN EDITION AUTOMÁTICO\"\n    }\n]"
+								},
+								{
+									"name": "HTTP OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Version?ModelID=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Version"
+											],
+											"query": [
+												{
+													"key": "ModelID",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Email\": \"ut\",\n \"Password\": \"fugi\",\n \"ConfirmPassword\": \"sint\"\n}"
+								}
+							]
+						},
+						{
+							"name": "API para recuperar versões cadastradas na webmotors - ModelID = 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2e140367-3264-4f63-8548-dc9e1320a6a4",
+										"exec": [
+											"pm.test(\"API para recuperar versões cadastradas na webmotors - ModelID = 2 - Status 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/OnlineChallenge/Version?ModelID=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"OnlineChallenge",
+										"Version"
+									],
+									"query": [
+										{
+											"key": "ModelID",
+											"value": "2"
+										}
+									]
+								},
+								"description": "JSON retorno para leitura"
+							},
+							"response": [
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Version?ModelID=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Version"
+											],
+											"query": [
+												{
+													"key": "ModelID",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "API para recuperar versões cadastradas na webmotors - ModelID = 2",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Version?ModelID=2",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Version"
+											],
+											"query": [
+												{
+													"key": "ModelID",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 26 Nov 2020 22:40:22 GMT"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "SERVER",
+											"value": ""
+										},
+										{
+											"key": "Content-Length",
+											"value": "272"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"ModelID\": 2,\n        \"ID\": 11,\n        \"Name\": \"1.5 DX 16V FLEX 4P AUTOMÁTICO\"\n    },\n    {\n        \"ModelID\": 2,\n        \"ID\": 12,\n        \"Name\": \"1.5 LX 16V FLEX 4P MANUAL\"\n    },\n    {\n        \"ModelID\": 2,\n        \"ID\": 13,\n        \"Name\": \"2.0 EXL 4X4 16V GASOLINA 4P AUTOMÁTICO\"\n    },\n    {\n        \"ModelID\": 2,\n        \"ID\": 14,\n        \"Name\": \"1.8 16V EVO FLEX FREEDOM OPEN EDITION AUTOMÁTICO\"\n    }\n]"
+								},
+								{
+									"name": "HTTP OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Version?ModelID=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Version"
+											],
+											"query": [
+												{
+													"key": "ModelID",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Email\": \"ut\",\n \"Password\": \"fugi\",\n \"ConfirmPassword\": \"sint\"\n}"
+								}
+							]
+						},
+						{
+							"name": "API para recuperar versões cadastradas na webmotors - ModelID = 3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ed43ccae-861c-448b-ad14-7756857027d9",
+										"exec": [
+											"pm.test(\"API para recuperar versões cadastradas na webmotors - ModelID = 3 - Status 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/OnlineChallenge/Version?ModelID=3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"OnlineChallenge",
+										"Version"
+									],
+									"query": [
+										{
+											"key": "ModelID",
+											"value": "3"
+										}
+									]
+								},
+								"description": "JSON retorno para leitura"
+							},
+							"response": [
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Version?ModelID=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Version"
+											],
+											"query": [
+												{
+													"key": "ModelID",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "API para recuperar versões cadastradas na webmotors - ModelID = 3",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Version?ModelID=3",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Version"
+											],
+											"query": [
+												{
+													"key": "ModelID",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 26 Nov 2020 22:40:36 GMT"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "SERVER",
+											"value": ""
+										},
+										{
+											"key": "Content-Length",
+											"value": "332"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"ModelID\": 3,\n        \"ID\": 16,\n        \"Name\": \"1.5 DX 16V FLEX 4P AUTOMÁTICO\"\n    },\n    {\n        \"ModelID\": 3,\n        \"ID\": 17,\n        \"Name\": \"1.5 LX 16V FLEX 4P MANUAL\"\n    },\n    {\n        \"ModelID\": 3,\n        \"ID\": 18,\n        \"Name\": \"2.0 EXL 4X4 16V GASOLINA 4P AUTOMÁTICO\"\n    },\n    {\n        \"ModelID\": 3,\n        \"ID\": 19,\n        \"Name\": \"1.8 16V EVO FLEX FREEDOM OPEN EDITION AUTOMÁTICO\"\n    },\n    {\n        \"ModelID\": 3,\n        \"ID\": 20,\n        \"Name\": \"1.0 MPI EL 8V FLEX 4P MANUAL\"\n    }\n]"
+								},
+								{
+									"name": "HTTP OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Version?ModelID=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Version"
+											],
+											"query": [
+												{
+													"key": "ModelID",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Email\": \"ut\",\n \"Password\": \"fugi\",\n \"ConfirmPassword\": \"sint\"\n}"
+								}
+							]
+						},
+						{
+							"name": "API para recuperar veículos cadastrados na webmotors - Page 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d5bee7cf-5063-46c9-a38a-5b422d898ada",
+										"exec": [
+											"pm.test(\"API para recuperar veículos cadastrados na webmotors - Page 1 - Status 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/OnlineChallenge/Vehicles?Page=1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"OnlineChallenge",
+										"Vehicles"
+									],
+									"query": [
+										{
+											"key": "Page",
+											"value": "1",
+											"description": "(Required) Codigo do Modelo"
+										}
+									]
+								},
+								"description": "JSON retorno para leitura"
+							},
+							"response": [
+								{
+									"name": "API para recuperar veículos cadastrados na webmotors - Page 1",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Vehicles?Page=1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Vehicles"
+											],
+											"query": [
+												{
+													"key": "Page",
+													"value": "1",
+													"description": "(Required) Codigo do Modelo"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 26 Nov 2020 22:41:02 GMT"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "ASP.NET"
+										},
+										{
+											"key": "Content-Length",
+											"value": "2322"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"ID\": 1,\n        \"Make\": \"Honda\",\n        \"Model\": \"City\",\n        \"Version\": \"2.0 EXL 4X4 16V GASOLINA 4P AUTOMÁTICO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/01.jpg\",\n        \"KM\": 0,\n        \"Price\": \"59000,00\",\n        \"YearModel\": 2018,\n        \"YearFab\": 2017,\n        \"Color\": \"Azul\"\n    },\n    {\n        \"ID\": 2,\n        \"Make\": \"Mitsubishi\",\n        \"Model\": \"Lancer\",\n        \"Version\": \"2.0 EVO 4P AUTOMÁTICO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/02.jpg\",\n        \"KM\": 47500,\n        \"Price\": \"49000,00\",\n        \"YearModel\": 2012,\n        \"YearFab\": 2012,\n        \"Color\": \"Branco\"\n    },\n    {\n        \"ID\": 3,\n        \"Make\": \"Honda\",\n        \"Model\": \"Fit\",\n        \"Version\": \"1.4 LXL 16V FLEX 4P AUTOMÁTICO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/03.jpg\",\n        \"KM\": 0,\n        \"Price\": \"78000,00\",\n        \"YearModel\": 2018,\n        \"YearFab\": 2018,\n        \"Color\": \"Preto\"\n    },\n    {\n        \"ID\": 4,\n        \"Make\": \"Mitsubishi\",\n        \"Model\": \"Lancer\",\n        \"Version\": \"2.0 EVO 4P AUTOMÁTICO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/04.jpg\",\n        \"KM\": 12900,\n        \"Price\": \"59000,00\",\n        \"YearModel\": 2016,\n        \"YearFab\": 2015,\n        \"Color\": \"Vermelho\"\n    },\n    {\n        \"ID\": 5,\n        \"Make\": \"Honda\",\n        \"Model\": \"Fit\",\n        \"Version\": \"1.4 LXL 16V FLEX 4P AUTOMÁTICO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/05.jpg\",\n        \"KM\": 12000,\n        \"Price\": \"55000,00\",\n        \"YearModel\": 2016,\n        \"YearFab\": 2016,\n        \"Color\": \"Azul\"\n    },\n    {\n        \"ID\": 6,\n        \"Make\": \"Chevrolet\",\n        \"Model\": \"Agile\",\n        \"Version\": \"1.4 MPFI EFFECT 8V FLEX 4P AUTOMATIZADO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/06.jpg\",\n        \"KM\": 12000,\n        \"Price\": \"37000,00\",\n        \"YearModel\": 2014,\n        \"YearFab\": 2013,\n        \"Color\": \"Vermelho\"\n    },\n    {\n        \"ID\": 7,\n        \"Make\": \"Chevrolet\",\n        \"Model\": \"Agile\",\n        \"Version\": \"1.4 MPFI EFFECT 8V FLEX 4P AUTOMATIZADO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/07.jpg\",\n        \"KM\": 0,\n        \"Price\": \"45000,00\",\n        \"YearModel\": 2018,\n        \"YearFab\": 2017,\n        \"Color\": \"Cinza\"\n    },\n    {\n        \"ID\": 8,\n        \"Make\": \"Ford\",\n        \"Model\": \"Ecosport\",\n        \"Version\": \"1.6 FREESTYLE 16V FLEX 4P MANUAL\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/08.jpg\",\n        \"KM\": 93000,\n        \"Price\": \"45000,00\",\n        \"YearModel\": 2013,\n        \"YearFab\": 2012,\n        \"Color\": \"Branca\"\n    },\n    {\n        \"ID\": 9,\n        \"Make\": \"Chevrolet\",\n        \"Model\": \"Agile\",\n        \"Version\": \"1.4 MPFI EFFECT 8V FLEX 4P AUTOMATIZADO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/06.jpg\",\n        \"KM\": 12000,\n        \"Price\": \"37000,00\",\n        \"YearModel\": 2014,\n        \"YearFab\": 2013,\n        \"Color\": \"Vermelho\"\n    },\n    {\n        \"ID\": 10,\n        \"Make\": \"Honda\",\n        \"Model\": \"Fit\",\n        \"Version\": \"1.4 LXL 16V FLEX 4P AUTOMÁTICO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/05.jpg\",\n        \"KM\": 12000,\n        \"Price\": \"55000,00\",\n        \"YearModel\": 2016,\n        \"YearFab\": 2016,\n        \"Color\": \"Azul\"\n    }\n]"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Vehicles?Page=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Vehicles"
+											],
+											"query": [
+												{
+													"key": "Page",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "HTTP OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Vehicles?Page=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Vehicles"
+											],
+											"query": [
+												{
+													"key": "Page",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Email\": \"ut\",\n \"Password\": \"fugi\",\n \"ConfirmPassword\": \"sint\"\n}"
+								}
+							]
+						},
+						{
+							"name": "API para recuperar veículos cadastrados na webmotors - Page 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "aae7546b-ee16-47f6-a1a5-0ad8988c0fd8",
+										"exec": [
+											"pm.test(\"API para recuperar veículos cadastrados na webmotors - Page 2 - Status 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/OnlineChallenge/Vehicles?Page=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"OnlineChallenge",
+										"Vehicles"
+									],
+									"query": [
+										{
+											"key": "Page",
+											"value": "2",
+											"description": "(Required) Codigo do Modelo"
+										}
+									]
+								},
+								"description": "JSON retorno para leitura"
+							},
+							"response": [
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Vehicles?Page=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Vehicles"
+											],
+											"query": [
+												{
+													"key": "Page",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "API para recuperar veículos cadastrados na webmotors - Page 2",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Vehicles?Page=2",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Vehicles"
+											],
+											"query": [
+												{
+													"key": "Page",
+													"value": "2",
+													"description": "(Required) Codigo do Modelo"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 26 Nov 2020 22:41:19 GMT"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "ASP.NET"
+										},
+										{
+											"key": "Content-Length",
+											"value": "2309"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"ID\": 11,\n        \"Make\": \"Mitsubishi\",\n        \"Model\": \"Lancer\",\n        \"Version\": \"2.0 EVO 4P AUTOMÁTICO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/04.jpg\",\n        \"KM\": 12900,\n        \"Price\": \"59000,00\",\n        \"YearModel\": 2016,\n        \"YearFab\": 2015,\n        \"Color\": \"Vermelho\"\n    },\n    {\n        \"ID\": 12,\n        \"Make\": \"Honda\",\n        \"Model\": \"Fit\",\n        \"Version\": \"1.4 LXL 16V FLEX 4P AUTOMÁTICO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/05.jpg\",\n        \"KM\": 12000,\n        \"Price\": \"55000,00\",\n        \"YearModel\": 2016,\n        \"YearFab\": 2016,\n        \"Color\": \"Azul\"\n    },\n    {\n        \"ID\": 13,\n        \"Make\": \"Chevrolet\",\n        \"Model\": \"Agile\",\n        \"Version\": \"1.4 MPFI EFFECT 8V FLEX 4P AUTOMATIZADO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/06.jpg\",\n        \"KM\": 12000,\n        \"Price\": \"37000,00\",\n        \"YearModel\": 2014,\n        \"YearFab\": 2013,\n        \"Color\": \"Vermelho\"\n    },\n    {\n        \"ID\": 14,\n        \"Make\": \"Honda\",\n        \"Model\": \"Fit\",\n        \"Version\": \"1.4 LXL 16V FLEX 4P AUTOMÁTICO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/05.jpg\",\n        \"KM\": 12000,\n        \"Price\": \"55000,00\",\n        \"YearModel\": 2016,\n        \"YearFab\": 2016,\n        \"Color\": \"Azul\"\n    },\n    {\n        \"ID\": 15,\n        \"Make\": \"Honda\",\n        \"Model\": \"City\",\n        \"Version\": \"2.0 EXL 4X4 16V GASOLINA 4P AUTOMÁTICO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/01.jpg\",\n        \"KM\": 0,\n        \"Price\": \"59000,00\",\n        \"YearModel\": 2018,\n        \"YearFab\": 2017,\n        \"Color\": \"Azul\"\n    },\n    {\n        \"ID\": 16,\n        \"Make\": \"Mitsubishi\",\n        \"Model\": \"Lancer\",\n        \"Version\": \"2.0 EVO 4P AUTOMÁTICO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/02.jpg\",\n        \"KM\": 47500,\n        \"Price\": \"49000,00\",\n        \"YearModel\": 2012,\n        \"YearFab\": 2012,\n        \"Color\": \"Branco\"\n    },\n    {\n        \"ID\": 17,\n        \"Make\": \"Honda\",\n        \"Model\": \"Fit\",\n        \"Version\": \"1.4 LXL 16V FLEX 4P AUTOMÁTICO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/03.jpg\",\n        \"KM\": 0,\n        \"Price\": \"78000,00\",\n        \"YearModel\": 2018,\n        \"YearFab\": 2018,\n        \"Color\": \"Preto\"\n    },\n    {\n        \"ID\": 18,\n        \"Make\": \"Mitsubishi\",\n        \"Model\": \"Lancer\",\n        \"Version\": \"2.0 EVO 4P AUTOMÁTICO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/04.jpg\",\n        \"KM\": 12900,\n        \"Price\": \"59000,00\",\n        \"YearModel\": 2016,\n        \"YearFab\": 2015,\n        \"Color\": \"Vermelho\"\n    },\n    {\n        \"ID\": 19,\n        \"Make\": \"Honda\",\n        \"Model\": \"Fit\",\n        \"Version\": \"1.4 LXL 16V FLEX 4P AUTOMÁTICO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/05.jpg\",\n        \"KM\": 12000,\n        \"Price\": \"55000,00\",\n        \"YearModel\": 2016,\n        \"YearFab\": 2016,\n        \"Color\": \"Azul\"\n    },\n    {\n        \"ID\": 20,\n        \"Make\": \"Chevrolet\",\n        \"Model\": \"Agile\",\n        \"Version\": \"1.4 MPFI EFFECT 8V FLEX 4P AUTOMATIZADO\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/07.jpg\",\n        \"KM\": 0,\n        \"Price\": \"45000,00\",\n        \"YearModel\": 2018,\n        \"YearFab\": 2017,\n        \"Color\": \"Cinza\"\n    }\n]"
+								},
+								{
+									"name": "HTTP OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Vehicles?Page=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Vehicles"
+											],
+											"query": [
+												{
+													"key": "Page",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Email\": \"ut\",\n \"Password\": \"fugi\",\n \"ConfirmPassword\": \"sint\"\n}"
+								}
+							]
+						},
+						{
+							"name": "API para recuperar veículos cadastrados na webmotors - Page 3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b252dd9b-dd8f-408d-9931-fc2baf591195",
+										"exec": [
+											"pm.test(\"API para recuperar veículos cadastrados na webmotors - Page 3 - Status 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/OnlineChallenge/Vehicles?Page=3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"OnlineChallenge",
+										"Vehicles"
+									],
+									"query": [
+										{
+											"key": "Page",
+											"value": "3",
+											"description": "(Required) Codigo do Modelo"
+										}
+									]
+								},
+								"description": "JSON retorno para leitura"
+							},
+							"response": [
+								{
+									"name": "HTTP OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Vehicles?Page=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Vehicles"
+											],
+											"query": [
+												{
+													"key": "Page",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"Email\": \"ut\",\n \"Password\": \"fugi\",\n \"ConfirmPassword\": \"sint\"\n}"
+								},
+								{
+									"name": "API para recuperar veículos cadastrados na webmotors - Page 3",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Vehicles?Page=3",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Vehicles"
+											],
+											"query": [
+												{
+													"key": "Page",
+													"value": "3",
+													"description": "(Required) Codigo do Modelo"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 26 Nov 2020 22:41:54 GMT"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "SERVER",
+											"value": ""
+										},
+										{
+											"key": "Content-Length",
+											"value": "235"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"ID\": 21,\n        \"Make\": \"Ford\",\n        \"Model\": \"Ecosport\",\n        \"Version\": \"1.6 FREESTYLE 16V FLEX 4P MANUAL\",\n        \"Image\": \"http://desafioonline.webmotors.com.br/content/img/08.jpg\",\n        \"KM\": 93000,\n        \"Price\": \"45000,00\",\n        \"YearModel\": 2013,\n        \"YearFab\": 2012,\n        \"Color\": \"Branca\"\n    }\n]"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/OnlineChallenge/Vehicles?Page=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"OnlineChallenge",
+												"Vehicles"
+											],
+											"query": [
+												{
+													"key": "Page",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Values",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Values Get",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b9b929f7-1017-4923-a72c-f03230ecc040",
+												"exec": [
+													"pm.test(\"Values Get - Status 200 OK\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"var valueEsperado = 'value'\r",
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"\r",
+													"pm.test(\"Value esperado: \" + valueEsperado + \" - Value obtido: \" + jsonData, function () {\r",
+													"    pm.expect(jsonData).to.eql(valueEsperado);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Values/:id?=value",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Values",
+												":id"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "value"
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"type": "string",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Values/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Values",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "\"proident reprehenderit laboris exercitation\""
+										},
+										{
+											"name": "Values Get",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Values/:id?=value",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Values",
+														":id"
+													],
+													"query": [
+														{
+															"key": "",
+															"value": "value"
+														}
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "1",
+															"type": "string",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 26 Nov 2020 22:42:25 GMT"
+												},
+												{
+													"key": "Expires",
+													"value": "-1"
+												},
+												{
+													"key": "Pragma",
+													"value": "no-cache"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Content-Length",
+													"value": "7"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "\"value\""
+										}
+									]
+								},
+								{
+									"name": "Values Put",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "6bf247d7-32f1-46f0-93fb-75ceeb0f18dd",
+												"exec": [
+													"if (responseCode.code === 200) \r",
+													"    tests[\"Values Get - Status 200 OK\"] = true;   \r",
+													"\r",
+													"else if (responseCode.code === 405) \r",
+													"    tests[\"Values Get - Status 405 Method Not Allowed\"] = true;\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "0",
+													"value": "<",
+													"description": "undefined"
+												},
+												{
+													"key": "1",
+													"value": "s",
+													"description": "undefined"
+												},
+												{
+													"key": "2",
+													"value": "t",
+													"description": "undefined"
+												},
+												{
+													"key": "3",
+													"value": "r",
+													"description": "undefined"
+												},
+												{
+													"key": "4",
+													"value": "i",
+													"description": "undefined"
+												},
+												{
+													"key": "5",
+													"value": "n",
+													"description": "undefined"
+												},
+												{
+													"key": "6",
+													"value": "g",
+													"description": "undefined"
+												},
+												{
+													"key": "7",
+													"value": ">",
+													"description": "undefined"
+												}
+											],
+											"options": {
+												"urlencoded": {}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Values/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Values",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"type": "string",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Values Put - Status 405  Method Not Allowed",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/x-www-form-urlencoded"
+													}
+												],
+												"body": {
+													"mode": "urlencoded",
+													"urlencoded": [
+														{
+															"key": "0",
+															"value": "<",
+															"description": "undefined"
+														},
+														{
+															"key": "1",
+															"value": "s",
+															"description": "undefined"
+														},
+														{
+															"key": "2",
+															"value": "t",
+															"description": "undefined"
+														},
+														{
+															"key": "3",
+															"value": "r",
+															"description": "undefined"
+														},
+														{
+															"key": "4",
+															"value": "i",
+															"description": "undefined"
+														},
+														{
+															"key": "5",
+															"value": "n",
+															"description": "undefined"
+														},
+														{
+															"key": "6",
+															"value": "g",
+															"description": "undefined"
+														},
+														{
+															"key": "7",
+															"value": ">",
+															"description": "undefined"
+														}
+													],
+													"options": {
+														"urlencoded": {}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Values/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Values",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "1",
+															"type": "string",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Method Not Allowed",
+											"code": 405,
+											"_postman_previewlanguage": "html",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Allow",
+													"value": "GET, HEAD, OPTIONS, TRACE"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/html"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 26 Nov 2020 22:42:34 GMT"
+												},
+												{
+													"key": "SERVER",
+													"value": ""
+												},
+												{
+													"key": "Content-Length",
+													"value": "101"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "The page you are looking for cannot be displayed because an invalid method (HTTP verb) is being used."
+										},
+										{
+											"name": "No Content",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Values/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Values",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Values Put - Status 200 OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/x-www-form-urlencoded"
+													}
+												],
+												"body": {
+													"mode": "urlencoded",
+													"urlencoded": [
+														{
+															"key": "0",
+															"value": "<",
+															"description": "undefined"
+														},
+														{
+															"key": "1",
+															"value": "s",
+															"description": "undefined"
+														},
+														{
+															"key": "2",
+															"value": "t",
+															"description": "undefined"
+														},
+														{
+															"key": "3",
+															"value": "r",
+															"description": "undefined"
+														},
+														{
+															"key": "4",
+															"value": "i",
+															"description": "undefined"
+														},
+														{
+															"key": "5",
+															"value": "n",
+															"description": "undefined"
+														},
+														{
+															"key": "6",
+															"value": "g",
+															"description": "undefined"
+														},
+														{
+															"key": "7",
+															"value": ">",
+															"description": "undefined"
+														}
+													],
+													"options": {
+														"urlencoded": {}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Values/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Values",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "1",
+															"type": "string",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "html",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/html"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "x-amz-id-2",
+													"value": "NgQydA8kyaahhHgr/MFL17I5rM3hRBWwu1eyqKv08DUdN3SjWXgpXaSmoFZYLRNIlvjOCkiUpOI="
+												},
+												{
+													"key": "x-amz-request-id",
+													"value": "15E7390BC26FAC28"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 26 Nov 2020 22:43:16 GMT"
+												},
+												{
+													"key": "Last-Modified",
+													"value": "Wed, 18 Nov 2020 21:12:01 GMT"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"a6610ab78adbb96f7d77f25c3437e436\""
+												},
+												{
+													"key": "x-amz-server-side-encryption",
+													"value": "AES256"
+												},
+												{
+													"key": "Server",
+													"value": "AmazonS3"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "Feature-Policy",
+													"value": "geolocation 'self'"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "Expect-CT",
+													"value": "max-age=86400"
+												},
+												{
+													"key": "Content-Encoding",
+													"value": "gzip"
+												},
+												{
+													"key": "Vary",
+													"value": "Accept-Encoding"
+												},
+												{
+													"key": "X-Cache",
+													"value": "Miss from cloudfront"
+												},
+												{
+													"key": "Via",
+													"value": "1.1 0b03db44a4f3db5d63a11240f3fe13b1.cloudfront.net (CloudFront)"
+												},
+												{
+													"key": "X-Amz-Cf-Pop",
+													"value": "MIA3-C5"
+												},
+												{
+													"key": "X-Amz-Cf-Id",
+													"value": "WLUst11fnsgv0BBDUqMHJmsVAuC_9LykEpHODUF6NRdvc4wuAC-L-w=="
+												}
+											],
+											"cookie": [],
+											"body": "<!DOCTYPE html>\n<html lang=\"pt-br\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\"\n        content=\"width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, height=device-height\">\n        <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n        <meta name=\"google-site-verification\" content=\"KlBCsUstiya0eqiazuVJBpnqKTUfsFzAk6uJVQSvJdM\" />\n        <title>Webmotors | Compre, venda e financie carros usados, novos e motos</title>\n        <meta name=\"description\"\n        content=\"Quer comprar ou vender um veículo sem sair de casa? Aqui você conta com uma experiência segura e 100% online. Acesse já!\" />\n        <link rel=\"preconnect\" href=\"https://www.google-analytics.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.google.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.google.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.googletagmanager.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.googleadservices.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://adservice.google.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://adservice.google.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://securepubads.g.doubleclick.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.googletagservices.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"http://www.googletagservices.com\" crossorigin=\"crossorigin\" />\n        <link href=\"https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap\" rel=\"stylesheet\"\n        crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://tpc.googlesyndication.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://csi.gstatic.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://pagead2.googlesyndication.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.webmotors.com.br/catalogo\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.webmotors.com.br/financiamento\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.webmotors.com.br/vender\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.webmotors.com.br/vender/moto\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.webmotors.com.br/tabela-fipe/\"\n        crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://consorcio.webmotors.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://login.webmotors.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://autopago.webmotors.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://cockpit.webmotors.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.webmotors.com.br/ofertas\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://s3.amazonaws.com/webmotors\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"//assets.adobedtm.com/\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://cdn.webmotors.com.br/\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://banner.appsflyer.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://rum-collector-2.pingdom.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://impressions.onelink.me\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://api.trafficguard.ai\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://api.shopback.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://front.shopconvert.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://static.criteo.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://vars.hotjar.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://gum.criteo.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://sslwidget.criteo.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://api.soclminer.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://static.socialminer.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://googleads.g.doubleclick.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://scontent.fcgh28-1.fna.fbcdn.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://webmotors.sc.omtrdc.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://connect.facebook.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://rum-static.pingdom.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://delivery.trafficguard.ai\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://app.shoptarget.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://plugins.soclminer.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://static.shopback.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://poscompra.shopconvert.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://event.getblue.io\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://ad.360yield.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://integration-healthy.dc.linximpulse.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://pixel.advertising.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://mboxedge17.tt.omtrdc.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://script.hotjar.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://x.bidswitch.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://ups.analytics.yahoo.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://trc.taboola.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://catalogo.webmotors.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://cdn.appsflyer.com\" crossorigin=\"crossorigin\" />\n        <script type=\"text/javascript\">\n        (function(win, doc, style, timeout) {\n            var STYLE_ID = 'at-body-style';\n            function getParent() {\n                return doc.getElementsByTagName('head')[0];\n            }\n\n            function addStyle(parent, id, def) {\n                if (!parent) {\n                    return;\n                }\n\n                var style = doc.createElement('style');\n                style.id = id;\n                style.innerHTML = def;\n                parent.appendChild(style);\n            }\n\n            function removeStyle(parent, id) {\n                if (!parent) {\n                    return;\n                }\n\n                var style = doc.getElementById(id);\n                if (!style) {\n                    return;\n                }\n                parent.removeChild(style);\n            }\n\n            addStyle(getParent(), STYLE_ID, style);\n            setTimeout(function() {\n                removeStyle(getParent(), STYLE_ID);\n            }, timeout);\n        }(window, document, \"body {opacity: 0 !important}\", 3000));\n    </script>\n        <script src=\"//assets.adobedtm.com/launch-ENa8ccb19d1824443d8c0fde67006c1d04.min.js\" async></script>\n        <script type=\"text/javascript\">\n    window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if(\"function\"==typeof __nr_require)return __nr_require;for(var o=0;o\n            <e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t(\"ee\"),a=t(18),s={};try{o=localStorage.getItem(\"__nr_flags\").split(\",\"),console&&\"function\"==typeof console.log&&(s.console=!0,o.indexOf(\"dev\")!==-1&&(s.dev=!0),o.indexOf(\"nr_dev\")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on(\"internal-error\",function(t){r(t.stack)}),s.dev&&i.on(\"fn-err\",function(t,n,e){r(e.stack)}),s.dev&&(r(\"NR AGENT IN DEVELOPMENT MODE\"),r(\"flags: \"+a(s,function(t,n){return t}).join(\", \")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i(\"ierr\",[f,c.now(),!0])}catch(d){}}return\"function\"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||\"Uncaught error with no additional information\",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i(\"err\",[t,e])}var i=t(\"handle\"),a=t(19),s=t(\"ee\"),c=t(\"loader\"),f=t(\"gos\"),u=window.onerror,d=!1,l=\"nr@seenError\",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){\"stack\"in h&&(t(8),t(7),\"addEventListener\"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on(\"fn-start\",function(t,n,e){d&&(p+=1)}),s.on(\"fn-err\",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on(\"fn-end\",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on(\"internal-error\",function(t){i(\"ierr\",[t,c.now(),!0])})},{}],3:[function(t,n,e){t(\"loader\").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t(\"ee\"),i=t(\"handle\"),a=t(8),s=t(7),c=\"learResourceTimings\",f=\"addEventListener\",u=\"resourcetimingbufferfull\",d=\"bstResource\",l=\"resource\",p=\"-start\",h=\"-end\",m=\"fn\"+p,w=\"fn\"+h,v=\"bstTimer\",y=\"pushState\",g=t(\"loader\");g.features.stn=!0,t(6);var x=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof x&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof x&&i(\"bst\",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),\"requestAnimationFrame\"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i(\"bstHist\",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance[\"c\"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance[\"c\"+c]()},!1):window.performance[f](\"webkit\"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance[\"webkitC\"+c]()},!1)),document[f](\"scroll\",r,{passive:!0}),document[f](\"keypress\",r,!1),document[f](\"click\",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],\"-\",i)}function i(t,n){return t[1]}var a=t(\"ee\").get(\"events\"),s=t(21)(a,!0),c=t(\"gos\"),f=XMLHttpRequest,u=\"addEventListener\",d=\"removeEventListener\";n.exports=a,\"getPrototypeOf\"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+\"-start\",function(t,n){var e=t[1],r=c(e,\"nr@wrapped\",function(){function t(){if(\"function\"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,\"function\":e}[typeof e];return n?s(n,\"fn-\",null,n.name||\"anonymous\"):e});this.wrapped=t[1]=r}),a.on(d+\"-start\",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t(\"ee\").get(\"history\"),o=t(21)(r);n.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,[\"pushState\",\"replaceState\"],\"-\")},{}],7:[function(t,n,e){var r=t(\"ee\").get(\"raf\"),o=t(21)(r),i=\"equestAnimationFrame\";n.exports=r,o.inPlace(window,[\"r\"+i,\"mozR\"+i,\"webkitR\"+i,\"msR\"+i],\"raf-\"),r.on(\"raf-start\",function(t){t[0]=o(t[0],\"fn-\")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],\"fn-\",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],\"fn-\",this,e)}var i=t(\"ee\").get(\"timer\"),a=t(21)(i),s=\"setTimeout\",c=\"setInterval\",f=\"clearTimeout\",u=\"-start\",d=\"-\";n.exports=i,a.inPlace(window,[s,\"setImmediate\"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,\"clearImmediate\"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,[\"onreadystatechange\"],\"fn-\",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit(\"xhr-resolved\",[],t)),d.inPlace(t,y,\"fn-\",s)}function i(t){g.push(t),h&&(b?b.then(a):w?w(a):(E=-E,R.data=E))}function a(){for(var t=0;t\n                <g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t(\"ee\"),u=f.get(\"xhr\"),d=t(21)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v=\"readystatechange\",y=[\"onload\",\"onerror\",\"onabort\",\"onloadstart\",\"onloadend\",\"onprogress\",\"ontimeout\"],g=[];n.exports=u;var x=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit(\"new-xhr\",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit(\"internal-error\",[e])}catch(r){}}return n};if(c(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,[\"open\",\"send\"],\"-xhr-\",s),u.on(\"send-xhr-start\",function(t,n){r(t,n),i(n)}),u.on(\"open-xhr-start\",r),h){var b=m&&m.resolve();if(!w&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on(\"fn-end\",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(){var t=window.NREUM,n=t.info.accountID||null,e=t.info.agentID||null,r=t.info.trustKey||null,i=\"btoa\"in window&&\"function\"==typeof window.btoa;if(!n||!e||!i)return null;var a={v:[0,1],d:{ty:\"Browser\",ac:n,ap:e,id:o.generateCatId(),tr:o.generateCatId(),ti:Date.now()}};return r&&n!==r&&(a.d.tk=r),btoa(JSON.stringify(a))}var o=t(16);n.exports={generateTraceHeader:r}},{}],11:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r\n                    <p;r++)t.removeEventListener(l[r],this.listener,!1);n.aborted||(e.duration=s.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==n.status&&(n.status=0):a(this,t),e.cbTime=this.cbTime,d.emit(\"xhr-done\",[t],t),c(\"xhr\",[n,e,this.startTime]))}}function o(t,n){var e=t.responseType;if(\"json\"===e&&null!==n)return n;var r=\"arraybuffer\"===e||\"blob\"===e||\"json\"===e?t.response:t.responseText;return w(r)}function i(t,n){var e=f(n),r=t.params;r.host=e.hostname+\":\"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}function a(t,n){t.params.status=n.status;var e=o(n,t.lastSize);if(e&&(t.metrics.rxSize=e),t.sameOrigin){var r=n.getResponseHeader(\"X-NewRelic-App-Data\");r&&(t.params.cat=r.split(\", \").pop())}t.loadCaptureCalled=!0}var s=t(\"loader\");if(s.xhrWrappable){var c=t(\"handle\"),f=t(12),u=t(10).generateTraceHeader,d=t(\"ee\"),l=[\"load\",\"error\",\"abort\",\"timeout\"],p=l.length,h=t(\"id\"),m=t(15),w=t(14),v=window.XMLHttpRequest;s.features.xhr=!0,t(9),d.on(\"new-xhr\",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,n.loadCaptureCalled=!1,t.addEventListener(\"load\",function(e){a(n,t)},!1),m&&(m>34||m\n                        <10)||window.opera||t.addEventListener(\"progress\",function(t){n.lastSize=t.loaded},!1)}),d.on(\"open-xhr-start\",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),d.on(\"open-xhr-end\",function(t,n){\"loader_config\"in NREUM&&\"xpid\"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader(\"X-NewRelic-ID\",NREUM.loader_config.xpid);var e=!1;if(\"init\"in NREUM&&\"distributed_tracing\"in NREUM.init&&(e=!!NREUM.init.distributed_tracing.enabled),e&&this.sameOrigin){var r=u();r&&n.setRequestHeader(\"newrelic\",r)}}),d.on(\"send-xhr-start\",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=w(r);i&&(e.txSize=i)}this.startTime=s.now(),this.listener=function(t){try{\"abort\"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),(\"load\"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||\"function\"!=typeof n.onload))&&o.end(n)}catch(e){try{d.emit(\"internal-error\",[e])}catch(r){}}};for(var a=0;a\n                            <p;a++)n.addEventListener(l[a],this.listener,!1)}),d.on(\"xhr-cb-time\",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&\"function\"==typeof e.onload||this.end(e)}),d.on(\"xhr-load-added\",function(t,n){var e=\"\"+h(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),d.on(\"xhr-load-removed\",function(t,n){var e=\"\"+h(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),d.on(\"addEventListener-end\",function(t,n){n instanceof v&&\"load\"===t[0]&&d.emit(\"xhr-load-added\",[t[1],t[2]],n)}),d.on(\"removeEventListener-end\",function(t,n){n instanceof v&&\"load\"===t[0]&&d.emit(\"xhr-load-removed\",[t[1],t[2]],n)}),d.on(\"fn-start\",function(t,n,e){n instanceof v&&(\"onload\"===e&&(this.onload=!0),(\"load\"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=s.now()))}),d.on(\"fn-end\",function(t,n){this.xhrCbStart&&d.emit(\"xhr-cb-time\",[s.now()-this.xhrCbStart,this.onload,n],n)})}},{}],12:[function(t,n,e){n.exports=function(t){var n=document.createElement(\"a\"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split(\"://\");!r.port&&o[1]&&(r.port=o[1].split(\"/\")[0].split(\"@\").pop().split(\":\")[1]),r.port&&\"0\"!==r.port||(r.port=\"https\"===o[0]?\"443\":\"80\"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],\"/\"!==r.pathname.charAt(0)&&(r.pathname=\"/\"+r.pathname);var i=!n.protocol||\":\"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],13:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t(\"handle\"),a=t(18),s=t(19),c=t(\"ee\").get(\"tracer\"),f=t(\"loader\"),u=NREUM;\"undefined\"==typeof window.newrelic&&(newrelic=u);var d=[\"setPageViewName\",\"setCustomAttribute\",\"setErrorHandler\",\"finished\",\"addToTrace\",\"inlineHit\",\"addRelease\"],l=\"api-\",p=l+\"ixn-\";a(d,function(t,n){u[n]=o(l+n,!0,\"api\")}),u.addPageAction=o(l+\"addPageAction\",!0),u.setCurrentRouteName=o(l+\"routeName\",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o=\"function\"==typeof n;return i(p+\"tracer\",[f.now(),t,e],r),function(){if(c.emit((o?\"\":\"no-\")+\"fn-start\",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit(\"fn-err\",[arguments,this,t],e),t}finally{c.emit(\"fn-end\",[f.now()],e)}}}};a(\"actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get\".split(\",\"),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t,n){\"string\"==typeof t&&(t=new Error(t)),i(\"err\",[t,f.now(),!1,n])}},{}],14:[function(t,n,e){n.exports=function(t){if(\"string\"==typeof t&&t.length)return t.length;if(\"object\"==typeof t){if(\"undefined\"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if(\"undefined\"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!(\"undefined\"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],15:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\\/\\s](\\d+\\.\\d+)/);o&&(r=+o[1]),n.exports=r},{}],16:[function(t,n,e){function r(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(n=r.getRandomValues(new Uint8Array(31)));for(var o,i=\"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx\",a=\"\",s=0;s\n                                <i.length;s++)o=i[s],\"x\"===o?a+=t().toString(16):\"y\"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&Uint8Array&&(n=r.getRandomValues(new Uint8Array(31)));for(var o=[],i=0;i\n                                    <16;i++)o.push(t().toString(16));return o.join(\"\")}n.exports={generateUuid:r,generateCatId:o}},{}],17:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split(\".\"),r=n.split(\".\"),a=0;a\n                                        <r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\\/(\\S+)\\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf(\"Chrome\")===-1&&s.indexOf(\"Chromium\")===-1&&(o=\"Safari\",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],18:[function(t,n,e){function r(t,n){var e=[],r=\"\",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],19:[function(t,n,e){function r(t,n,e){n||(n=0),\"undefined\"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o\n                                            <0?0:o);++r\n                                                <o;)i[r]=t[n+r];return i}n.exports=r},{}],20:[function(t,n,e){n.exports={exists:\"undefined\"!=typeof window.performance&&window.performance.timing&&\"undefined\"!=typeof window.performance.timing.navigationStart}},{}],21:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t(\"ee\"),i=t(19),a=\"nr@original\",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s=\"function\"==typeof e?e(r,a):e||{}}catch(f){l([f,\"\",[r,a,o],s])}u(n+\"start\",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+\"err\",[r,a,d],s),d}finally{u(n+\"end\",[r,a,c],s)}}return r(t)?t:(n||(n=\"\"),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o=\"\");var a,s,c,f=\"-\"===o.charAt(0);for(c=0;c\n                                                    <n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit(\"internal-error\",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f\n                                                        <c;f++)s[f].apply(a,r);var d=u[g[e]];return d&&d.push([x,e,r,a]),a}}function p(t,n){y[t]=m(t).concat(n)}function h(t,n){var e=y[t];if(e)for(var r=0;r\n                                                            <e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return y[t]||[]}function w(t){return d[t]=d[t]||o(e)}function v(t,n){f(t,function(t,e){n=n||\"feature\",g[e]=n,n in u||(u[n]=[])})}var y={},g={},x={on:p,addEventListener:p,removeEventListener:h,emit:e,get:w,listeners:m,context:n,buffer:v,abort:a,aborted:!1};return x}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s=\"nr@context\",c=t(\"gos\"),f=t(18),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t(\"ee\").get(\"handle\");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||\"object\"!==n&&\"function\"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i=\"nr@id\",a=t(\"gos\");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=b.info=NREUM.info,n=p.getElementsByTagName(\"script\")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(g,function(n,e){t[n]||(t[n]=e)}),c(\"mark\",[\"onload\",a()+b.offset],null,\"api\");var e=p.createElement(\"script\");e.src=\"https://\"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){\"complete\"===p.readyState&&i()}function i(){c(\"mark\",[\"domContent\",a()+b.offset],null,\"api\")}function a(){return R.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t(\"handle\"),f=t(18),u=t(\"ee\"),d=t(17),l=window,p=l.document,h=\"addEventListener\",m=\"attachEvent\",w=l.XMLHttpRequest,v=w&&w.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:w,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var y=\"\"+location,g={beacon:\"bam.nr-data.net\",errorBeacon:\"bam.nr-data.net\",agent:\"js-agent.newrelic.com/nr-1130.min.js\"},x=w&&v&&v[h]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:x,userAgent:d};t(13),p[h]?(p[h](\"DOMContentLoaded\",i,!1),l[h](\"load\",r,!1)):(p[m](\"onreadystatechange\",o),l[m](\"onload\",r)),c(\"mark\",[\"firstbyte\",s],null,\"api\");var E=0,R=t(20)},{}]},{},[\"loader\",2,11,4,3]); ;NREUM.info={beacon:\"bam.nr-data.net\",errorBeacon:\"bam.nr-data.net\",licenseKey:\"983aef30ed\",applicationID:\"416890117\",sa:1}\n    \n                                                            </script>\n                                                            <script type=\"text/javascript\">\n        var objDataLayer = {};\n        var googletag = googletag || {};\n        googletag.cmd = googletag.cmd || [];\n        (function () {\n            var gads = document.createElement('script');\n            gads.async = true;\n            gads.type = 'text/javascript';\n            var useSSL = 'https:' == document.location.protocol;\n            gads.src = (useSSL ? 'https:' : 'http:') +\n                '//www.googletagservices.com/tag/js/gpt.js';\n            var node = document.getElementsByTagName('script')[0];\n            node.parentNode.insertBefore(gads, node);\n        })();\n    </script>\n                                                            <style>\n        @keyframes loader-spin {\n            0% {\n                transform: rotate(0)\n            }\n\n            100% {\n                transform: rotate(360deg)\n            }\n        }\n\n        @-webkit-keyframes loader-spin {\n            0% {\n                transform: rotate(0)\n            }\n\n            100% {\n                transform: rotate(360deg)\n            }\n        }\n\n        .loader {\n            width: calc(100% - 34px);\n            z-index: 99999998;\n            position: fixed;\n            top: 50%;\n            left: 17px;\n            -webkit-transition: opacity 250ms ease;\n            transition: opacity 250ms ease\n        }\n\n        .loader--show {\n            opacity: 1\n        }\n\n        .loader--hide {\n            opacity: 0\n        }\n\n        .loader__spin {\n            width: 40px;\n            height: 40px;\n            border-radius: 50%;\n            border: 5px solid rgba(255, 255, 255, .2);\n            border-top-color: #f3123c;\n            animation: loader-spin 1s infinite linear;\n            display: block;\n            margin: 0 auto\n        }\n    </style>\n                                                            <link href=\"/stylesheets/main.460103ad92ed100557b3.css\" rel=\"stylesheet\">\n                                                        </head>\n                                                        <body>\n                                                            <div id=\"root\">\n                                                                <div class=\"loader loader--show\" style=\"z-index: 2147483647;\">\n                                                                    <div class=\"loader__spin\">&nbsp;</div>\n                                                                </div>\n                                                            </div>\n                                                            <script type=\"text/javascript\" src=\"/javascripts/vendors~main.71c246803c26e3c37f58.js\"></script>\n                                                            <script type=\"text/javascript\" src=\"/javascripts/main.b565711416126a438f85.js\"></script>\n                                                        </body>\n                                                    </html>"
+										}
+									]
+								},
+								{
+									"name": "Values Delete",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "4bc11fc8-8f3e-4759-87ad-e1f74100f9b3",
+												"exec": [
+													"if (responseCode.code === 200) \r",
+													"    tests[\"Values Delete - Status 200 OK\"] = true;   \r",
+													"\r",
+													"else if (responseCode.code === 405) \r",
+													"    tests[\"Values Delete - Status 405 Method Not Allowed\"] = true;"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Values/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Values",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0",
+													"type": "string",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "No Content",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Values/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Values",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Values Delete - Status 200 OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Values/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Values",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "0",
+															"type": "string",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "html",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/html"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "x-amz-id-2",
+													"value": "NgQydA8kyaahhHgr/MFL17I5rM3hRBWwu1eyqKv08DUdN3SjWXgpXaSmoFZYLRNIlvjOCkiUpOI="
+												},
+												{
+													"key": "x-amz-request-id",
+													"value": "15E7390BC26FAC28"
+												},
+												{
+													"key": "Last-Modified",
+													"value": "Wed, 18 Nov 2020 21:12:01 GMT"
+												},
+												{
+													"key": "x-amz-server-side-encryption",
+													"value": "AES256"
+												},
+												{
+													"key": "Server",
+													"value": "AmazonS3"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "Feature-Policy",
+													"value": "geolocation 'self'"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "Expect-CT",
+													"value": "max-age=86400"
+												},
+												{
+													"key": "Content-Encoding",
+													"value": "gzip"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 26 Nov 2020 22:43:57 GMT"
+												},
+												{
+													"key": "ETag",
+													"value": "\"a6610ab78adbb96f7d77f25c3437e436\""
+												},
+												{
+													"key": "Vary",
+													"value": "Accept-Encoding"
+												},
+												{
+													"key": "X-Cache",
+													"value": "RefreshHit from cloudfront"
+												},
+												{
+													"key": "Via",
+													"value": "1.1 0b03db44a4f3db5d63a11240f3fe13b1.cloudfront.net (CloudFront)"
+												},
+												{
+													"key": "X-Amz-Cf-Pop",
+													"value": "MIA3-C5"
+												},
+												{
+													"key": "X-Amz-Cf-Id",
+													"value": "XmrZd-f7p5qfoqgm8w63jBp74e63MLT9u2tgoluxdSQzFZuFwrXXHA=="
+												}
+											],
+											"cookie": [],
+											"body": "<!DOCTYPE html>\n<html lang=\"pt-br\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\"\n        content=\"width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, height=device-height\">\n        <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n        <meta name=\"google-site-verification\" content=\"KlBCsUstiya0eqiazuVJBpnqKTUfsFzAk6uJVQSvJdM\" />\n        <title>Webmotors | Compre, venda e financie carros usados, novos e motos</title>\n        <meta name=\"description\"\n        content=\"Quer comprar ou vender um veículo sem sair de casa? Aqui você conta com uma experiência segura e 100% online. Acesse já!\" />\n        <link rel=\"preconnect\" href=\"https://www.google-analytics.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.google.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.google.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.googletagmanager.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.googleadservices.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://fonts.gstatic.com/\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://adservice.google.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://adservice.google.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://securepubads.g.doubleclick.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.googletagservices.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"http://www.googletagservices.com\" crossorigin=\"crossorigin\" />\n        <link href=\"https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap\" rel=\"stylesheet\"\n        crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://tpc.googlesyndication.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://csi.gstatic.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://pagead2.googlesyndication.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.webmotors.com.br/catalogo\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.webmotors.com.br/financiamento\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.webmotors.com.br/vender\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.webmotors.com.br/vender/moto\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.webmotors.com.br/tabela-fipe/\"\n        crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://consorcio.webmotors.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://login.webmotors.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://autopago.webmotors.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://cockpit.webmotors.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://www.webmotors.com.br/ofertas\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://s3.amazonaws.com/webmotors\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"//assets.adobedtm.com/\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://cdn.webmotors.com.br/\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://banner.appsflyer.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://rum-collector-2.pingdom.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://impressions.onelink.me\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://api.trafficguard.ai\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://api.shopback.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://front.shopconvert.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://static.criteo.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://vars.hotjar.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://gum.criteo.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://sslwidget.criteo.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://api.soclminer.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://static.socialminer.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://googleads.g.doubleclick.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://scontent.fcgh28-1.fna.fbcdn.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://webmotors.sc.omtrdc.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://connect.facebook.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://rum-static.pingdom.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://delivery.trafficguard.ai\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://app.shoptarget.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://plugins.soclminer.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://static.shopback.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://poscompra.shopconvert.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://event.getblue.io\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://ad.360yield.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://integration-healthy.dc.linximpulse.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://pixel.advertising.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://mboxedge17.tt.omtrdc.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://script.hotjar.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://x.bidswitch.net\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://ups.analytics.yahoo.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://trc.taboola.com\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://catalogo.webmotors.com.br\" crossorigin=\"crossorigin\" />\n        <link rel=\"preconnect\" href=\"https://cdn.appsflyer.com\" crossorigin=\"crossorigin\" />\n        <script type=\"text/javascript\">\n        (function(win, doc, style, timeout) {\n            var STYLE_ID = 'at-body-style';\n            function getParent() {\n                return doc.getElementsByTagName('head')[0];\n            }\n\n            function addStyle(parent, id, def) {\n                if (!parent) {\n                    return;\n                }\n\n                var style = doc.createElement('style');\n                style.id = id;\n                style.innerHTML = def;\n                parent.appendChild(style);\n            }\n\n            function removeStyle(parent, id) {\n                if (!parent) {\n                    return;\n                }\n\n                var style = doc.getElementById(id);\n                if (!style) {\n                    return;\n                }\n                parent.removeChild(style);\n            }\n\n            addStyle(getParent(), STYLE_ID, style);\n            setTimeout(function() {\n                removeStyle(getParent(), STYLE_ID);\n            }, timeout);\n        }(window, document, \"body {opacity: 0 !important}\", 3000));\n    </script>\n        <script src=\"//assets.adobedtm.com/launch-ENa8ccb19d1824443d8c0fde67006c1d04.min.js\" async></script>\n        <script type=\"text/javascript\">\n    window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if(\"function\"==typeof __nr_require)return __nr_require;for(var o=0;o\n            <e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t(\"ee\"),a=t(18),s={};try{o=localStorage.getItem(\"__nr_flags\").split(\",\"),console&&\"function\"==typeof console.log&&(s.console=!0,o.indexOf(\"dev\")!==-1&&(s.dev=!0),o.indexOf(\"nr_dev\")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on(\"internal-error\",function(t){r(t.stack)}),s.dev&&i.on(\"fn-err\",function(t,n,e){r(e.stack)}),s.dev&&(r(\"NR AGENT IN DEVELOPMENT MODE\"),r(\"flags: \"+a(s,function(t,n){return t}).join(\", \")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i(\"ierr\",[f,c.now(),!0])}catch(d){}}return\"function\"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||\"Uncaught error with no additional information\",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i(\"err\",[t,e])}var i=t(\"handle\"),a=t(19),s=t(\"ee\"),c=t(\"loader\"),f=t(\"gos\"),u=window.onerror,d=!1,l=\"nr@seenError\",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){\"stack\"in h&&(t(8),t(7),\"addEventListener\"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on(\"fn-start\",function(t,n,e){d&&(p+=1)}),s.on(\"fn-err\",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on(\"fn-end\",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on(\"internal-error\",function(t){i(\"ierr\",[t,c.now(),!0])})},{}],3:[function(t,n,e){t(\"loader\").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t(\"ee\"),i=t(\"handle\"),a=t(8),s=t(7),c=\"learResourceTimings\",f=\"addEventListener\",u=\"resourcetimingbufferfull\",d=\"bstResource\",l=\"resource\",p=\"-start\",h=\"-end\",m=\"fn\"+p,w=\"fn\"+h,v=\"bstTimer\",y=\"pushState\",g=t(\"loader\");g.features.stn=!0,t(6);var x=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof x&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof x&&i(\"bst\",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),\"requestAnimationFrame\"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i(\"bstHist\",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance[\"c\"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance[\"c\"+c]()},!1):window.performance[f](\"webkit\"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance[\"webkitC\"+c]()},!1)),document[f](\"scroll\",r,{passive:!0}),document[f](\"keypress\",r,!1),document[f](\"click\",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],\"-\",i)}function i(t,n){return t[1]}var a=t(\"ee\").get(\"events\"),s=t(21)(a,!0),c=t(\"gos\"),f=XMLHttpRequest,u=\"addEventListener\",d=\"removeEventListener\";n.exports=a,\"getPrototypeOf\"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+\"-start\",function(t,n){var e=t[1],r=c(e,\"nr@wrapped\",function(){function t(){if(\"function\"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,\"function\":e}[typeof e];return n?s(n,\"fn-\",null,n.name||\"anonymous\"):e});this.wrapped=t[1]=r}),a.on(d+\"-start\",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t(\"ee\").get(\"history\"),o=t(21)(r);n.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,[\"pushState\",\"replaceState\"],\"-\")},{}],7:[function(t,n,e){var r=t(\"ee\").get(\"raf\"),o=t(21)(r),i=\"equestAnimationFrame\";n.exports=r,o.inPlace(window,[\"r\"+i,\"mozR\"+i,\"webkitR\"+i,\"msR\"+i],\"raf-\"),r.on(\"raf-start\",function(t){t[0]=o(t[0],\"fn-\")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],\"fn-\",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],\"fn-\",this,e)}var i=t(\"ee\").get(\"timer\"),a=t(21)(i),s=\"setTimeout\",c=\"setInterval\",f=\"clearTimeout\",u=\"-start\",d=\"-\";n.exports=i,a.inPlace(window,[s,\"setImmediate\"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,\"clearImmediate\"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,[\"onreadystatechange\"],\"fn-\",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit(\"xhr-resolved\",[],t)),d.inPlace(t,y,\"fn-\",s)}function i(t){g.push(t),h&&(b?b.then(a):w?w(a):(E=-E,R.data=E))}function a(){for(var t=0;t\n                <g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t(\"ee\"),u=f.get(\"xhr\"),d=t(21)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v=\"readystatechange\",y=[\"onload\",\"onerror\",\"onabort\",\"onloadstart\",\"onloadend\",\"onprogress\",\"ontimeout\"],g=[];n.exports=u;var x=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit(\"new-xhr\",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit(\"internal-error\",[e])}catch(r){}}return n};if(c(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,[\"open\",\"send\"],\"-xhr-\",s),u.on(\"send-xhr-start\",function(t,n){r(t,n),i(n)}),u.on(\"open-xhr-start\",r),h){var b=m&&m.resolve();if(!w&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on(\"fn-end\",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(){var t=window.NREUM,n=t.info.accountID||null,e=t.info.agentID||null,r=t.info.trustKey||null,i=\"btoa\"in window&&\"function\"==typeof window.btoa;if(!n||!e||!i)return null;var a={v:[0,1],d:{ty:\"Browser\",ac:n,ap:e,id:o.generateCatId(),tr:o.generateCatId(),ti:Date.now()}};return r&&n!==r&&(a.d.tk=r),btoa(JSON.stringify(a))}var o=t(16);n.exports={generateTraceHeader:r}},{}],11:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r\n                    <p;r++)t.removeEventListener(l[r],this.listener,!1);n.aborted||(e.duration=s.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==n.status&&(n.status=0):a(this,t),e.cbTime=this.cbTime,d.emit(\"xhr-done\",[t],t),c(\"xhr\",[n,e,this.startTime]))}}function o(t,n){var e=t.responseType;if(\"json\"===e&&null!==n)return n;var r=\"arraybuffer\"===e||\"blob\"===e||\"json\"===e?t.response:t.responseText;return w(r)}function i(t,n){var e=f(n),r=t.params;r.host=e.hostname+\":\"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}function a(t,n){t.params.status=n.status;var e=o(n,t.lastSize);if(e&&(t.metrics.rxSize=e),t.sameOrigin){var r=n.getResponseHeader(\"X-NewRelic-App-Data\");r&&(t.params.cat=r.split(\", \").pop())}t.loadCaptureCalled=!0}var s=t(\"loader\");if(s.xhrWrappable){var c=t(\"handle\"),f=t(12),u=t(10).generateTraceHeader,d=t(\"ee\"),l=[\"load\",\"error\",\"abort\",\"timeout\"],p=l.length,h=t(\"id\"),m=t(15),w=t(14),v=window.XMLHttpRequest;s.features.xhr=!0,t(9),d.on(\"new-xhr\",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,n.loadCaptureCalled=!1,t.addEventListener(\"load\",function(e){a(n,t)},!1),m&&(m>34||m\n                        <10)||window.opera||t.addEventListener(\"progress\",function(t){n.lastSize=t.loaded},!1)}),d.on(\"open-xhr-start\",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),d.on(\"open-xhr-end\",function(t,n){\"loader_config\"in NREUM&&\"xpid\"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader(\"X-NewRelic-ID\",NREUM.loader_config.xpid);var e=!1;if(\"init\"in NREUM&&\"distributed_tracing\"in NREUM.init&&(e=!!NREUM.init.distributed_tracing.enabled),e&&this.sameOrigin){var r=u();r&&n.setRequestHeader(\"newrelic\",r)}}),d.on(\"send-xhr-start\",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=w(r);i&&(e.txSize=i)}this.startTime=s.now(),this.listener=function(t){try{\"abort\"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),(\"load\"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||\"function\"!=typeof n.onload))&&o.end(n)}catch(e){try{d.emit(\"internal-error\",[e])}catch(r){}}};for(var a=0;a\n                            <p;a++)n.addEventListener(l[a],this.listener,!1)}),d.on(\"xhr-cb-time\",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&\"function\"==typeof e.onload||this.end(e)}),d.on(\"xhr-load-added\",function(t,n){var e=\"\"+h(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),d.on(\"xhr-load-removed\",function(t,n){var e=\"\"+h(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),d.on(\"addEventListener-end\",function(t,n){n instanceof v&&\"load\"===t[0]&&d.emit(\"xhr-load-added\",[t[1],t[2]],n)}),d.on(\"removeEventListener-end\",function(t,n){n instanceof v&&\"load\"===t[0]&&d.emit(\"xhr-load-removed\",[t[1],t[2]],n)}),d.on(\"fn-start\",function(t,n,e){n instanceof v&&(\"onload\"===e&&(this.onload=!0),(\"load\"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=s.now()))}),d.on(\"fn-end\",function(t,n){this.xhrCbStart&&d.emit(\"xhr-cb-time\",[s.now()-this.xhrCbStart,this.onload,n],n)})}},{}],12:[function(t,n,e){n.exports=function(t){var n=document.createElement(\"a\"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split(\"://\");!r.port&&o[1]&&(r.port=o[1].split(\"/\")[0].split(\"@\").pop().split(\":\")[1]),r.port&&\"0\"!==r.port||(r.port=\"https\"===o[0]?\"443\":\"80\"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],\"/\"!==r.pathname.charAt(0)&&(r.pathname=\"/\"+r.pathname);var i=!n.protocol||\":\"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],13:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t(\"handle\"),a=t(18),s=t(19),c=t(\"ee\").get(\"tracer\"),f=t(\"loader\"),u=NREUM;\"undefined\"==typeof window.newrelic&&(newrelic=u);var d=[\"setPageViewName\",\"setCustomAttribute\",\"setErrorHandler\",\"finished\",\"addToTrace\",\"inlineHit\",\"addRelease\"],l=\"api-\",p=l+\"ixn-\";a(d,function(t,n){u[n]=o(l+n,!0,\"api\")}),u.addPageAction=o(l+\"addPageAction\",!0),u.setCurrentRouteName=o(l+\"routeName\",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o=\"function\"==typeof n;return i(p+\"tracer\",[f.now(),t,e],r),function(){if(c.emit((o?\"\":\"no-\")+\"fn-start\",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit(\"fn-err\",[arguments,this,t],e),t}finally{c.emit(\"fn-end\",[f.now()],e)}}}};a(\"actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get\".split(\",\"),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t,n){\"string\"==typeof t&&(t=new Error(t)),i(\"err\",[t,f.now(),!1,n])}},{}],14:[function(t,n,e){n.exports=function(t){if(\"string\"==typeof t&&t.length)return t.length;if(\"object\"==typeof t){if(\"undefined\"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if(\"undefined\"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!(\"undefined\"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],15:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\\/\\s](\\d+\\.\\d+)/);o&&(r=+o[1]),n.exports=r},{}],16:[function(t,n,e){function r(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(n=r.getRandomValues(new Uint8Array(31)));for(var o,i=\"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx\",a=\"\",s=0;s\n                                <i.length;s++)o=i[s],\"x\"===o?a+=t().toString(16):\"y\"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&Uint8Array&&(n=r.getRandomValues(new Uint8Array(31)));for(var o=[],i=0;i\n                                    <16;i++)o.push(t().toString(16));return o.join(\"\")}n.exports={generateUuid:r,generateCatId:o}},{}],17:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split(\".\"),r=n.split(\".\"),a=0;a\n                                        <r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\\/(\\S+)\\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf(\"Chrome\")===-1&&s.indexOf(\"Chromium\")===-1&&(o=\"Safari\",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],18:[function(t,n,e){function r(t,n){var e=[],r=\"\",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],19:[function(t,n,e){function r(t,n,e){n||(n=0),\"undefined\"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o\n                                            <0?0:o);++r\n                                                <o;)i[r]=t[n+r];return i}n.exports=r},{}],20:[function(t,n,e){n.exports={exists:\"undefined\"!=typeof window.performance&&window.performance.timing&&\"undefined\"!=typeof window.performance.timing.navigationStart}},{}],21:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t(\"ee\"),i=t(19),a=\"nr@original\",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s=\"function\"==typeof e?e(r,a):e||{}}catch(f){l([f,\"\",[r,a,o],s])}u(n+\"start\",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+\"err\",[r,a,d],s),d}finally{u(n+\"end\",[r,a,c],s)}}return r(t)?t:(n||(n=\"\"),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o=\"\");var a,s,c,f=\"-\"===o.charAt(0);for(c=0;c\n                                                    <n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit(\"internal-error\",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f\n                                                        <c;f++)s[f].apply(a,r);var d=u[g[e]];return d&&d.push([x,e,r,a]),a}}function p(t,n){y[t]=m(t).concat(n)}function h(t,n){var e=y[t];if(e)for(var r=0;r\n                                                            <e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return y[t]||[]}function w(t){return d[t]=d[t]||o(e)}function v(t,n){f(t,function(t,e){n=n||\"feature\",g[e]=n,n in u||(u[n]=[])})}var y={},g={},x={on:p,addEventListener:p,removeEventListener:h,emit:e,get:w,listeners:m,context:n,buffer:v,abort:a,aborted:!1};return x}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s=\"nr@context\",c=t(\"gos\"),f=t(18),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t(\"ee\").get(\"handle\");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||\"object\"!==n&&\"function\"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i=\"nr@id\",a=t(\"gos\");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=b.info=NREUM.info,n=p.getElementsByTagName(\"script\")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(g,function(n,e){t[n]||(t[n]=e)}),c(\"mark\",[\"onload\",a()+b.offset],null,\"api\");var e=p.createElement(\"script\");e.src=\"https://\"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){\"complete\"===p.readyState&&i()}function i(){c(\"mark\",[\"domContent\",a()+b.offset],null,\"api\")}function a(){return R.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t(\"handle\"),f=t(18),u=t(\"ee\"),d=t(17),l=window,p=l.document,h=\"addEventListener\",m=\"attachEvent\",w=l.XMLHttpRequest,v=w&&w.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:w,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var y=\"\"+location,g={beacon:\"bam.nr-data.net\",errorBeacon:\"bam.nr-data.net\",agent:\"js-agent.newrelic.com/nr-1130.min.js\"},x=w&&v&&v[h]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:x,userAgent:d};t(13),p[h]?(p[h](\"DOMContentLoaded\",i,!1),l[h](\"load\",r,!1)):(p[m](\"onreadystatechange\",o),l[m](\"onload\",r)),c(\"mark\",[\"firstbyte\",s],null,\"api\");var E=0,R=t(20)},{}]},{},[\"loader\",2,11,4,3]); ;NREUM.info={beacon:\"bam.nr-data.net\",errorBeacon:\"bam.nr-data.net\",licenseKey:\"983aef30ed\",applicationID:\"416890117\",sa:1}\n    \n                                                            </script>\n                                                            <script type=\"text/javascript\">\n        var objDataLayer = {};\n        var googletag = googletag || {};\n        googletag.cmd = googletag.cmd || [];\n        (function () {\n            var gads = document.createElement('script');\n            gads.async = true;\n            gads.type = 'text/javascript';\n            var useSSL = 'https:' == document.location.protocol;\n            gads.src = (useSSL ? 'https:' : 'http:') +\n                '//www.googletagservices.com/tag/js/gpt.js';\n            var node = document.getElementsByTagName('script')[0];\n            node.parentNode.insertBefore(gads, node);\n        })();\n    </script>\n                                                            <style>\n        @keyframes loader-spin {\n            0% {\n                transform: rotate(0)\n            }\n\n            100% {\n                transform: rotate(360deg)\n            }\n        }\n\n        @-webkit-keyframes loader-spin {\n            0% {\n                transform: rotate(0)\n            }\n\n            100% {\n                transform: rotate(360deg)\n            }\n        }\n\n        .loader {\n            width: calc(100% - 34px);\n            z-index: 99999998;\n            position: fixed;\n            top: 50%;\n            left: 17px;\n            -webkit-transition: opacity 250ms ease;\n            transition: opacity 250ms ease\n        }\n\n        .loader--show {\n            opacity: 1\n        }\n\n        .loader--hide {\n            opacity: 0\n        }\n\n        .loader__spin {\n            width: 40px;\n            height: 40px;\n            border-radius: 50%;\n            border: 5px solid rgba(255, 255, 255, .2);\n            border-top-color: #f3123c;\n            animation: loader-spin 1s infinite linear;\n            display: block;\n            margin: 0 auto\n        }\n    </style>\n                                                            <link href=\"/stylesheets/main.460103ad92ed100557b3.css\" rel=\"stylesheet\">\n                                                        </head>\n                                                        <body>\n                                                            <div id=\"root\">\n                                                                <div class=\"loader loader--show\" style=\"z-index: 2147483647;\">\n                                                                    <div class=\"loader__spin\">&nbsp;</div>\n                                                                </div>\n                                                            </div>\n                                                            <script type=\"text/javascript\" src=\"/javascripts/vendors~main.71c246803c26e3c37f58.js\"></script>\n                                                            <script type=\"text/javascript\" src=\"/javascripts/main.b565711416126a438f85.js\"></script>\n                                                        </body>\n                                                    </html>"
+										},
+										{
+											"name": "Values Delete - Status 405 Method Not Allowed",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Values/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Values",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "0",
+															"type": "string",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Method Not Allowed",
+											"code": 405,
+											"_postman_previewlanguage": "html",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Allow",
+													"value": "GET, HEAD, OPTIONS, TRACE"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/html"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 26 Nov 2020 22:44:24 GMT"
+												},
+												{
+													"key": "SERVER",
+													"value": ""
+												},
+												{
+													"key": "Content-Length",
+													"value": "101"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "The page you are looking for cannot be displayed because an invalid method (HTTP verb) is being used."
+										}
+									]
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Values Get",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a5f91274-699a-4411-ace0-1855904aab69",
+										"exec": [
+											"pm.test(\"Values Get - Status 200 OK\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"var valuesEsperados = ['value1', 'value2']\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"for (var i = 0; i < valuesEsperados.length; i++) {\r",
+											"    pm.test(\"Value esperado: \" + valuesEsperados[i] + \" - Value obtido: \" + jsonData[i], function () {\r",
+											"        pm.expect(jsonData[i]).to.eql(valuesEsperados[i]);\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Values",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Values"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Values",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Values"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n \"sunt Excepteur\",\n \"non eiusmod\"\n]"
+								},
+								{
+									"name": "Values Get",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Values",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Values"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 26 Nov 2020 22:45:02 GMT"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "ASP.NET"
+										},
+										{
+											"key": "Content-Length",
+											"value": "19"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    \"value1\",\n    \"value2\"\n]"
+								}
+							]
+						},
+						{
+							"name": "Values Post",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1464798a-7927-4091-8e45-04980273c667",
+										"exec": [
+											"pm.test(\"Values Post - Status 204 No Content\", function () {\r",
+											"    pm.response.to.have.status(204);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "0",
+											"value": "<",
+											"description": "undefined"
+										},
+										{
+											"key": "1",
+											"value": "s",
+											"description": "undefined"
+										},
+										{
+											"key": "2",
+											"value": "t",
+											"description": "undefined"
+										},
+										{
+											"key": "3",
+											"value": "r",
+											"description": "undefined"
+										},
+										{
+											"key": "4",
+											"value": "i",
+											"description": "undefined"
+										},
+										{
+											"key": "5",
+											"value": "n",
+											"description": "undefined"
+										},
+										{
+											"key": "6",
+											"value": "g",
+											"description": "undefined"
+										},
+										{
+											"key": "7",
+											"value": ">",
+											"description": "undefined"
+										}
+									],
+									"options": {
+										"urlencoded": {}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Values",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Values"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Values",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Values"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Values Post",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "0",
+													"value": "<",
+													"description": "undefined"
+												},
+												{
+													"key": "1",
+													"value": "s",
+													"description": "undefined"
+												},
+												{
+													"key": "2",
+													"value": "t",
+													"description": "undefined"
+												},
+												{
+													"key": "3",
+													"value": "r",
+													"description": "undefined"
+												},
+												{
+													"key": "4",
+													"value": "i",
+													"description": "undefined"
+												},
+												{
+													"key": "5",
+													"value": "n",
+													"description": "undefined"
+												},
+												{
+													"key": "6",
+													"value": "g",
+													"description": "undefined"
+												},
+												{
+													"key": "7",
+													"value": ">",
+													"description": "undefined"
+												}
+											],
+											"options": {
+												"urlencoded": {}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Values",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Values"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 26 Nov 2020 22:45:27 GMT"
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "ASP.NET"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "http://desafioonline.webmotors.com.br",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

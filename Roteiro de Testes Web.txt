@@ -1,0 +1,110 @@
+================================================================================================
+Funcionalidade: Home - Resultados de Busca por Marca e Modelo
+    Como um usuário do sistema 
+    Eu quero acessar a Home da Webmotors
+    Para que eu possa buscar marcas e modelos de carro
+
+Cenário: Buscar marca de carro inexistente 
+	Dado que eu acesse a Home da Webmotors
+	Quando eu informar no campo Digite marca ou modelo do carro, uma marca de carro inexistente "Marca Inexistente"
+	Então deve ser apresentada a mensagem Não encontramos este termo, verifique a ortografia
+
+Cenário: Selecionar sugestão relacionada a marca de carro informada
+	Dado que eu acesse a Home da Webmotors
+	E eu informe no campo Digite marca ou modelo do carro, uma marca de carro existente "Honda"
+	
+	Quando eu selecionar a sugestão relacionada a marca de carro informada
+
+	Então deve ser apresentada abaixo do campo Digite marca ou modelo do carro as opções BRASIL e HONDA CITY
+	E deve ser apresentado o caminho Home > Carros > Honda > City
+	E deve ser apresentada a seção Honda City Novos e Usados
+
+Cenário: Buscar modelo de carro existente 
+	Dado que eu acesse a Home da Webmotors
+	Quando eu informar no campo Digite marca ou modelo do carro, um modelo de carro existente "City"
+	Então devem ser apresentadas sugestões relacionadas ao modelo informado
+
+Cenário: Selecionar sugestão relacionada ao modelo de carro informado
+	Dado que eu acesse a Home da Webmotors
+	E eu informe no campo Digite marca ou modelo do carro, um modelo de carro existente "City"
+	
+	Quando eu selecionar a sugestão relacionada ao modelo de carro informado
+
+	Então deve ser apresentada abaixo do campo Digite marca ou modelo do carro as opções BRASIL e HONDA CITY
+	E deve ser apresentado o caminho Home > Carros > Honda > City
+	E deve ser apresentada a seção Honda City Novos e Usados
+
+================================================================================================
+Funcionalidade: Resultados de Busca por Localização 
+    Como um usuário do sistema 
+    Eu quero acessar os resultados de busca Webmotors
+    Para que eu possa buscar carros por localização 
+
+Cenário: Buscar carros por localização pelo Estado do Rio de Janeiro
+	Dado que eu acesse a tela de Resultados de busca da Webmotors
+	
+	Quando eu informar no campo Localização, um estado existente "Rio de Janeiro"
+	E eu selecionar a sugestão relacionada ao estado informado
+
+	Então deve ser apresentada abaixo do campo Digite marca ou modelo do carro a opção RIO DE JANEIRO
+	E deve ser apresentado o caminho Home > Carros > RJ
+	E deve ser apresentada a seção Carros em Rio de Janeiro - Novos e Usados
+
+Cenário: Buscar carros por localização pela Cidade Ferraz de Vasconcelos - SP 
+	Dado que eu acesse a tela de Resultados de busca da Webmotors
+	
+	Quando eu informar no campo Localização, uma cidade existente "Ferraz de Vasconcelos - SP"
+	E eu selecionar a sugestão relacionada a cidade informada
+
+	Então deve ser apresentada abaixo do campo Digite marca ou modelo do carro a opção FERRAZ DE VASCONCELOS - SP
+	E deve ser apresentado o caminho Home > Carros > Sp > Ferraz De Vasconcelos
+	E deve ser apresentada a seção Carros em Ferraz de Vasconcelos SP - Novos e Usados
+
+Cenário: Clicar nas opções Honda e City da seção à esquerda Marca do carro
+	Dado que eu acesse a tela de Resultados de busca da Webmotors
+	E eu informe no campo Localização, uma cidade existente "Ferraz de Vasconcelos - SP"
+	E eu selecione a sugestão relacionada a cidade informada
+	E eu clique na opção "Honda" da seção à esquerda Marca do carro
+	E eu clique no menu Todos os modelos
+
+	Quando eu selecionar a opção "CITY"
+
+	Então deve ser apresentada abaixo do campo Digite marca ou modelo do carro a opção HONDA CITY
+	E deve ser apresentado o caminho Home > Carros > Sp > Ferraz De Vasconcelos > Honda > City
+	E deve ser apresentada a seção Honda City em Ferraz de Vasconcelos SP - Novos e Usados
+
+================================================================================================
+Funcionalidade: Estoque de Loja
+    Como um usuário do sistema 
+    Eu quero acessar o Estoque de Loja da Webmotors
+    Para que eu possa verificar o Estoque de Loja
+
+Cenário: Verificar tela de Estoque de Loja da Webmotors
+	Dado que eu acesse a tela de Estoque de Loja da Webmotors com ID Revendedor relacionado a MAZOLA AUTOMOVEIS, e Vendedor CONCESSIONÁRIA, LOJA
+	Quando eu verificar a tela de Estoque de Loja da Webmotors
+	Então deve ser apresentada abaixo do campo Digite marca ou modelo do carro as opções MAZOLA AUTOMOVEIS, BRASIL e CONCESSIONÁRIA, LOJA
+
+Cenário: Verificar seção Vendedor à esquerda 
+	Dado que eu acesse a tela de Estoque de Loja da Webmotors com ID Revendedor relacionado a MAZOLA AUTOMOVEIS, e Vendedor CONCESSIONÁRIA, LOJA
+	Quando eu verificar a seção Vendedor à esquerda
+	Então a segunda opção de Concessionária deve estar selecionada
+	E a segunda opção de Loja deve estar selecionada
+
+Cenário: Clicar na opção Honda da seção à esquerda Marca do carro
+	Dado que eu acesse a tela de Estoque de Loja da Webmotors com ID Revendedor relacionado a MAZOLA AUTOMOVEIS, e Vendedor CONCESSIONÁRIA, LOJA
+
+	Quando eu clicar na opção "Honda" da seção à esquerda Marca do carro
+
+	Então deve ser apresentada abaixo do campo Digite marca ou modelo do carro a opção HONDA
+	E abaixo da revendedora Mazola automóveis deve ser apresentado o caminho Home > Carros > Honda
+
+Cenário: Verificar modelo de carro inexistente
+	Dado que eu acesse a tela de Estoque de Loja da Webmotors com ID Revendedor relacionado a MAZOLA AUTOMOVEIS, e Vendedor CONCESSIONÁRIA, LOJA
+	E eu clique na opção "Honda" da seção à esquerda Marca do carro da tela de Estoque de Loja
+	E eu clique no menu Todos os modelos da tela de Estoque de Loja
+	
+	Quando eu informar no campo Digite o modelo desejado, um modelo inexistente "City" para o revendedor Mazola Automóveis 
+
+	Então deve ser apresentada a mensagem Nenhum resultado
+
+================================================================================================
